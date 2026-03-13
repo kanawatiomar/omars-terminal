@@ -1760,7 +1760,7 @@ async function fetchMeta(){
    STOCK/COMMODITY/FOREX FETCHING (Yahoo Finance via proxy)
    ═══════════════════════════════════════════ */
 const YAHOO_SYMBOLS = [...STOCKS,...COMMODITIES,...FOREX];
-const CORS_PROXY = 'https://corsproxy.io/?';
+const CORS_PROXY = 'https://api.allorigins.win/raw?url=';
 
 async function fetchStocks(){
   // Use v8 chart endpoint via CORS proxy (Yahoo has no CORS headers)
@@ -1902,7 +1902,7 @@ Provide actionable market outlook in 2-3 sentences max. Be concise and specific.
    ═══════════════════════════════════════════ */
 async function fetchEconomicCalendar(){
   try{
-    const resp=await fetch('https://corsproxy.io/?https://nfs.faireconomy.media/ff_calendar_thisweek.json');
+    const resp=await fetch('https://api.allorigins.win/raw?url=https://nfs.faireconomy.media/ff_calendar_thisweek.json');
     const data=await resp.json();
     if(Array.isArray(data)){
       economicEvents=data.filter(e=>e.impact==='High'||e.impact==='Medium').slice(0,15).map(e=>({
@@ -3892,3 +3892,4 @@ setInterval(()=>{if(activeTab==='overview')renderRecentTrades()},5000);
 </div>
 </body>
 </html>
+
