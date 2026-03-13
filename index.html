@@ -1837,7 +1837,7 @@ async function fetchFearGreed(){
    ═══════════════════════════════════════════ */
 async function fetchCryptoNews(){
   try{
-    const resp=await fetch('https://min-api.cryptocompare.com/data/v2/news/?lang=EN');
+    const resp=await fetch('https://api.allorigins.win/raw?url='+encodeURIComponent('https://min-api.cryptocompare.com/data/v2/news/?lang=EN'));
     const data=await resp.json();
     if(data&&data.Data&&Array.isArray(data.Data)){
       newsData=data.Data.slice(0,20).map(n=>({
